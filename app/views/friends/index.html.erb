@@ -10,24 +10,28 @@
     <th scope="col">Phone</th>      <!-- Atualize o nome da coluna -->
     <th scope="col">Twitter</th>    <!-- Atualize o nome da coluna -->
     <th scope="col">Actions</th>
+    <th scope="col">User Id</th>
   </tr>
   </thead>
   <tbody>
   <% @friends.each_with_index do |friend, index| %>
-    <tr>
-      <th scope="row"><%= index + 1 %></th>
-      <td><%= friend.first_name %></td>
-      <td><%= friend.last_name %></td>
-      <td><%= friend.email %></td>
-      <td><%= friend.phone %></td>
-      <td><%= friend.twitter %></td>
-      <td>
-        <%= link_to "Show", friend, class: "btn btn-info" %>
-        <%= link_to "Edit", friend, class: "btn btn-info" %>
-        <%= link_to "Destroy", friend, class: "btn btn-info" %>
+    <% if friend.user == current_user %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= friend.first_name %></td>
+        <td><%= friend.last_name %></td>
+        <td><%= friend.email %></td>
+        <td><%= friend.phone %></td>
+        <td><%= friend.twitter %></td>
+        <td><%= friend.user_id %></td>
+        <td>
+          <%= link_to "Show", friend, class: "btn btn-info" %>
+          <%= link_to "Edit", friend, class: "btn btn-info" %>
+          <%= link_to "Destroy", friend, class: "btn btn-info" %>
 
-      </td>
-    </tr>
+        </td>
+      </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>
