@@ -1,8 +1,8 @@
 <%= render @friend %>
 
 <div>
-  <%= button_to "Edit", edit_friend_path(@friend), class: "btn btn-primary" %>
+  <%= link_to "Edit", edit_friend_path(@friend), class: "btn btn-primary" %>
   <%= button_to "Delete", @friend, method: :delete, data: {confirm: 'Are you Sure?' }, class: "btn btn-danger" %>
-  <%= button_to "Back", friends_path, class: "btn btn-success"%>
+  <%= link_to "Back", friends_path, class: "btn btn-success"%>
 </div>
 <br>
