@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.0.1"
 gem "rails", "~> 7.0.7", ">= 7.0.7.2"
 gem "sprockets-rails"
-gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
@@ -18,7 +17,14 @@ group :development, :test do
 end
 group :development do
   gem "web-console"
+  gem "sqlite3", "~> 1.4"
 end
+
+group :production do
+  #gem 'pg', '~>1.2', '>= 1.2.3'
+  # gm 'rails_12factor', '0.0.2'
+end
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
